@@ -11,16 +11,26 @@ async function run() {
     // // console.log("Create User", createUser);
 
     // post 
-    const createPost = await prisma.post.create({
-        data: {
+    // const createPost = await prisma.post.create({
+    //     data: {
 
-            title: "This title ",
-            content: "This Content",
-            isPublished: true,
-            authorId: 1
+    //         title: "This title ",
+    //         content: "This Content",
+    //         isPublished: true,
+    //         authorId: 1
 
+    //     }
+    // })
+    // console.log("Create Post" , createPost);
+    // Profile 
+
+    const createProfile = await prisma.profile.create({
+        data : {
+          userId : 1,
+          bio : "Next Level",
+          dob : "2003"
         }
     })
-    console.log("Create Post" , createPost);
+    console.log("CreateProfile" , createProfile);
 }
 run();

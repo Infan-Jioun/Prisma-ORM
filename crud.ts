@@ -32,30 +32,39 @@ async function run() {
     //     }
     // })
     // console.log("CreateProfile" , createProfile);
-    // retrive All user 
-    // const users = await prisma.user.findMany({
-    //     // include: {
-    //     //     posts: true,
-    //     //     profile: true
-    //     // }
-    //     select : {
-    //         posts : true,
-    //         profile : true
-    //     }
-    // })
-    // //  console.log(users);
+   //  retrive All user 
+    const users = await prisma.user.findMany({
+        // include: {
+        //     posts: true,
+        //     profile: true
+        // }
+        select : {
+            posts : true,
+            profile : true
+        }
+    })
+     console.log(users);
     // console.dir(users, { depth: Infinity })
 
     // update 
-    const updateUser = await prisma.user.update({
+    // const updateUser = await prisma.user.update({
+    //      where : {
+    //          id : 1
+    //      },
+    //      data : {
+    //         name : "Rahman Infan"
+    //      }
+    // })
+    // console.log(updateUser);
+      const deleteUser = await prisma.user.update({
          where : {
-             id : 1
+             email : "jiounrahman@gmail.com"
          },
-         data : {
-            name : "Rahman Infan"
-         }
+  data  : {
+
+  }
     })
-    console.log(updateUser);
+    console.log(deleteUser);
 }
 
 

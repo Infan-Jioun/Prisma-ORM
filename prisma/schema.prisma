@@ -18,7 +18,18 @@ model User {
   name  String
   email String @unique
   posts Post[]
+  profile Profile?
 }
+// One to One Relateion
+model Profile {
+   id Int   @id @default(autoincrement())
+   bio String?
+   dob String?
+
+   userId Int @unique
+   user User @relation(fields: [userId] , references: [id])
+}
+// One to Many
 
 model Post {
   id          Int      @id @default(autoincrement())
